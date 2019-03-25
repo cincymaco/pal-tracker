@@ -32,8 +32,8 @@ jobs:
         - echo "Deploying $RELEASE_TAG to Cloud Foundry"
       deploy:
         provider: cloudfoundry
-        api: $CF_API_URL
-        username: $CF_USERNAME
-        password: $CF_PASSWORD
-        organization: $CF_ORG
-        space: $CF_SPACE
+        api: api.sys.evans.pal.pivotal.io
+        username: tj.maco@kroger.com
+        password: y5n3985g
+        organization: tj.maco.kroger.com
+        space: review
