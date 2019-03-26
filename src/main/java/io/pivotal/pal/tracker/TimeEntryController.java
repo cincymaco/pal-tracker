@@ -12,10 +12,9 @@ public class TimeEntryController {
 
     public TimeEntryController(TimeEntryRepository timeEntryRepository) {
         this.timeEntryRepository = timeEntryRepository;
-
     }
 
-    public ResponseEntity create(TimeEntry timeEntryToCreate) {
+    public ResponseEntity<TimeEntry> create(TimeEntry timeEntryToCreate) {
         return null;
     }
 

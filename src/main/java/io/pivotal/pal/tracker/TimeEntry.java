@@ -22,7 +22,8 @@ public class TimeEntry {
         this.hours = hours;
     }
 
-    public TimeEntry(long projectId, long userId, LocalDate parse, int i) {
+    public TimeEntry(long projectId, long userId, LocalDate date, int hours) {
+        this.id = -1;
         this.projectId = projectId;
         this.userId = userId;
         this.date = date;
