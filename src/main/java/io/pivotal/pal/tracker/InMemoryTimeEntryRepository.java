@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class InMemoryTimeEntryRepository implements TimeEntryRepository {
-    private final Map<Long, TimeEntry> timeEntryMap = new HashMap();
+    private final Map<Long, TimeEntry> timeEntryMap = new ConcurrentHashMap<>();
     private AtomicLong counter = new AtomicLong(0L);
+
     @Override
     public TimeEntry create(TimeEntry timeEntry) {
         Long timeEntryId = getNextId();
@@ -28,10 +30,10 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
 
     @Override
     public TimeEntry update(Long timeEntryId, TimeEntry timeEntry) {
-        if (this.find(timeEntryId)!=null){
+        if (this.find(timeEntryId) != null) {
             TimeEntry timeEntryUpdated = new TimeEntry(timeEntryId, timeEntry.getProjectId(), timeEntry.getUserId(), timeEntry.getDate(), timeEntry.getHours());
             timeEntryMap.put(timeEntryId, timeEntryUpdated);
-            return timeEntryUpdated ;
+            return timeEntryUpdated;
         }
         return null;
     }
