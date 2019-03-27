@@ -1,5 +1,6 @@
 package io.pivotal.pal.tracker;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
@@ -14,7 +15,7 @@ import java.util.List;
 
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
-@Repository
+
 public class JdbcTimeEntryRepository implements TimeEntryRepository {
 
 
